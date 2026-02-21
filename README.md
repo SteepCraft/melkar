@@ -189,22 +189,31 @@ Gestione la información de su equipo de trabajo.
 Control de acceso al sistema informático.
 
 ```mermaid
-mindmap
-  root((Melkar))
-    Administrador
-      Acceso Total
-      Gestión de Usuarios
-      Reportes Financieros
-    Gerente
-      Reportes Operativos
-      Gestión de Personal
-      Inventario
-    Vendedor
-      Ventas y Cotizaciones
-      Cartera de Clientes
-    Técnico
-      Servicios (Futuro)
-      Soporte
+graph TD
+    classDef default fill:#fff,stroke:#333,stroke-width:2px,color:#000;
+    classDef node fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+
+    root((Melkar)) --> Admin[Administrador]
+    root --> Gerente[Gerente]
+    root --> Vendedor[Vendedor]
+    root --> Tecnico[Técnico]
+
+    Admin --> A1[Acceso Total]
+    Admin --> A2[Gestión de Usuarios]
+    Admin --> A3[Reportes Financieros]
+
+    Gerente --> G1[Reportes Operativos]
+    Gerente --> G2[Gestión de Personal]
+    Gerente --> G3[Inventario]
+
+    Vendedor --> V1[Ventas y Cotizaciones]
+    Vendedor --> V2[Cartera de Clientes]
+
+    Tecnico --> T1[Servicios - Futuro]
+    Tecnico --> T2[Soporte]
+
+    class root,Admin,Gerente,Vendedor,Tecnico default;
+    class A1,A2,A3,G1,G2,G3,V1,V2,T1,T2 node;
 ```
 
 - **Crear Usuarios:** Asigne un nombre, correo y rol (Administrador, Vendedor, Gerente) para dar acceso al sistema.
