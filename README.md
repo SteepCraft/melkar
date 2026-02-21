@@ -22,6 +22,9 @@ Bienvenido al manual de usuario del sistema de gestión **Melkar**. Esta guía e
 
 ```mermaid
 graph TD
+    classDef default fill:#fff,stroke:#333,stroke-width:2px,color:#000;
+    classDef dark fill:#333,stroke:#fff,stroke-width:2px,color:#fff;
+    
     A[Inicio] --> B{¿Tiene Credenciales?}
     B -- No --> C[Solicitar al Administrador]
     B -- Sí --> D[Ingresar Correo y Contraseña]
@@ -34,6 +37,8 @@ graph TD
     I --> J[Ingresar Correo]
     J --> K[Recibir Contraseña Temporal]
     K --> D
+    
+    class A,B,C,D,E,F,G,H,I,J,K default;
 ```
 
 Para ingresar al sistema, diríjase a la pantalla de inicio:
@@ -68,10 +73,20 @@ Aquí encontrará el catálogo completo de artículos.
 
   ```mermaid
   graph LR
+      classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+      classDef green fill:#d4edda,stroke:#155724,stroke-width:2px,color:#155724;
+      classDef yellow fill:#fff3cd,stroke:#856404,stroke-width:2px,color:#856404;
+      classDef red fill:#f8d7da,stroke:#721c24,stroke-width:2px,color:#721c24;
+
       A[Producto] --> B{Cantidad de Stock}
       B -- Mayor a 10 --> C[🟢 En Stock]
       B -- Entre 5 y 10 --> D[🟡 Stock Bajo]
       B -- Menor a 5 --> E[🔴 Crítico]
+
+      class A,B default;
+      class C green;
+      class D yellow;
+      class E red;
   ```
 
   - 🟢 **En Stock:** Cantidad suficiente.
@@ -105,6 +120,11 @@ Gestione el reabastecimiento de productos.
 
 ```mermaid
 sequenceDiagram
+    %% Theme configuration
+    %%Note: Sequence diagrams are harder to style individually, usually depend on global theme.
+    %%Adding 'autonumber' for better structure
+
+    autonumber
     participant U as Usuario
     participant S as Sistema
     participant I as Inventario
@@ -134,6 +154,8 @@ Registre las salidas de mercancía por venta directa.
 
 ```mermaid
 graph TD
+    classDef default fill:#fff,stroke:#333,stroke-width:2px,color:#000;
+    
     A[Cliente Solicita Producto] --> B{¿Requiere Cotización?}
     B -- Sí --> C[Crear Cotización]
     C --> D{¿Cliente Aprueba?}
@@ -143,6 +165,8 @@ graph TD
     F --> G[Registrar Venta]
     G --> H[Descontar del Inventario]
     H --> I[Generar Comprobante]
+    
+    class A,B,C,D,E,F,G,H,I default;
 ```
 
 - Seleccione el cliente y los productos.
