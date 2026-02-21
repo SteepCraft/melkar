@@ -1,0 +1,26 @@
+{
+  "name": "melkar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "start": "tsx backend/src/index.ts",
+    "db:push": "pnpm --filter @melkar/database db:push",
+    "db:seed": "pnpm --filter @melkar/database db:seed",
+    "db:studio": "pnpm --filter @melkar/database db:studio",
+    "db:generate": "pnpm --filter @melkar/database db:generate",
+    "db:migrate": "pnpm --filter @melkar/database db:migrate",
+    "infra:up": "docker compose -f docker-compose.dev.yml up -d",
+    "infra:down": "docker compose -f docker-compose.dev.yml down",
+    "infra:logs": "docker compose -f docker-compose.dev.yml logs -f"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "drizzle-kit": "1.0.0-beta.15-859cf75",
+    "tsx": "^4.19.0",
+    "turbo": "^2.8.10",
+    "typescript": "^5.7.0"
+  },
+  "packageManager": "pnpm@10.30.1"
+}
